@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Suisei Archive Guide',
-  tagline: 'Treasure every moment with our dearest comet ☄️',
+  tagline: 'Treasure every single moment with our dearest comet ☄️',
   url: 'https://your-docusaurus-test-site.com',
   baseUrl: '/sui-archive/',
   onBrokenLinks: 'throw',
