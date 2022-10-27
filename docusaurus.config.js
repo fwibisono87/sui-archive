@@ -9,7 +9,7 @@ const config = {
   title: 'Suisei Archive Guide',
   tagline: 'Treasure every moment with our dearest comet ☄️',
   url: 'https://your-docusaurus-test-site.com',
-  baseUrl: '/',
+  baseUrl: '/sui-archive',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
