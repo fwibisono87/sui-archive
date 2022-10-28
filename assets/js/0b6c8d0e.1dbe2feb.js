@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksui_archive=self.webpackChunksui_archive||[]).push([[4953],{5366:e=>{e.exports=JSON.parse('{"permalink":"/sui-archive/blog/tags/facebook","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);

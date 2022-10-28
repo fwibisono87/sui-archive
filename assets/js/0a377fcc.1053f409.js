@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksui_archive=self.webpackChunksui_archive||[]).push([[41],{2254:e=>{e.exports=JSON.parse('{"label":"hello","permalink":"/sui-archive/blog/tags/hello","allTagsPath":"/sui-archive/blog/tags","count":2}')}}]);

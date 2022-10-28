@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksui_archive=self.webpackChunksui_archive||[]).push([[5927],{4935:e=>{e.exports=JSON.parse('{"permalink":"/sui-archive/blog/tags/hello","page":1,"postsPerPage":10,"totalPages":1,"totalCount":2,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);
