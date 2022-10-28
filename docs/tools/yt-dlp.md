@@ -62,3 +62,111 @@ Assuming you want to download [Suisei's Stellar Stellar](https://www.youtube.com
 ``` bash
 yt-dlp "https://www.youtube.com/watch?v=a51VH9BYzZA"
 ```
+
+## Advanced Usage
+### Choosing formats
+You can select formats you want downloaded. To show all formats, use `-F`
+```bash
+yt-dlp "https://www.youtube.com/watch?v=a51VH9BYzZA" -F
+```
+The output should be as follows: 
+```bash
+yt-dlp "https://www.youtube.com/watch?v=a51VH9BYzZA" -F                                                                          2
+[youtube] a51VH9BYzZA: Downloading webpage
+[youtube] a51VH9BYzZA: Downloading android player API JSON
+[info] a51VH9BYzZA: Downloading subtitles: en, en-zVxKeCQ1ZAM
+[info] Available formats for a51VH9BYzZA:
+ID  EXT   RESOLUTION FPS CH │   FILESIZE   TBR PROTO │ VCODEC          VBR ACODEC      ABR ASR MORE INFO
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+sb2 mhtml 48x27        0    │                  mhtml │ images                                  storyboard
+sb1 mhtml 80x45        0    │                  mhtml │ images                                  storyboard
+sb0 mhtml 160x90       0    │                  mhtml │ images                                  storyboard
+599 m4a   audio only      2 │    1.12MiB   31k https │ audio only          mp4a.40.5   31k 22k ultralow, m4a_dash
+600 webm  audio only      2 │    1.22MiB   33k https │ audio only          opus        33k 48k ultralow, webm_dash
+139 m4a   audio only      2 │    1.77MiB   49k https │ audio only          mp4a.40.5   49k 22k low, m4a_dash
+249 webm  audio only      2 │    1.79MiB   49k https │ audio only          opus        49k 48k low, webm_dash
+250 webm  audio only      2 │    2.36MiB   65k https │ audio only          opus        65k 48k low, webm_dash
+140 m4a   audio only      2 │    4.71MiB  129k https │ audio only          mp4a.40.2  129k 44k medium, m4a_dash
+251 webm  audio only      2 │    4.62MiB  127k https │ audio only          opus       127k 48k medium, webm_dash
+17  3gp   176x144     12  1 │    2.78MiB   76k https │ mp4v.20.3       76k mp4a.40.2    0k 22k 144p
+597 mp4   256x144     12    │    1.10MiB   30k https │ avc1.4d400b     30k video only          144p, mp4_dash
+598 webm  256x144     12    │  821.63KiB   22k https │ vp9             22k video only          144p, webm_dash
+394 mp4   256x144     24    │    2.26MiB   62k https │ av01.0.00M.08   62k video only          144p, mp4_dash
+160 mp4   256x144     24    │    1.79MiB   49k https │ avc1.4d400c     49k video only          144p, mp4_dash
+278 webm  256x144     24    │    2.69MiB   74k https │ vp9             74k video only          144p, webm_dash
+395 mp4   426x240     24    │    3.19MiB   88k https │ av01.0.00M.08   88k video only          240p, mp4_dash
+133 mp4   426x240     24    │    2.99MiB   82k https │ avc1.4d4015     82k video only          240p, mp4_dash
+242 webm  426x240     24    │    3.53MiB   97k https │ vp9             97k video only          240p, webm_dash
+396 mp4   640x360     24    │    6.00MiB  165k https │ av01.0.01M.08  165k video only          360p, mp4_dash
+134 mp4   640x360     24    │    5.23MiB  144k https │ avc1.4d401e    144k video only          360p, mp4_dash
+18  mp4   640x360     24  2 │ ~ 10.16MiB  273k https │ avc1.42001E    273k mp4a.40.2    0k 44k 360p
+243 webm  640x360     24    │    6.16MiB  170k https │ vp9            170k video only          360p, webm_dash
+397 mp4   854x480     24    │   10.12MiB  278k https │ av01.0.04M.08  278k video only          480p, mp4_dash
+135 mp4   854x480     24    │    8.00MiB  220k https │ avc1.4d401e    220k video only          480p, mp4_dash
+244 webm  854x480     24    │    9.23MiB  254k https │ vp9            254k video only          480p, webm_dash
+22  mp4   1280x720    24  2 │ ~ 19.61MiB  527k https │ avc1.64001F    527k mp4a.40.2    0k 44k 720p
+398 mp4   1280x720    24    │   19.25MiB  530k https │ av01.0.05M.08  530k video only          720p, mp4_dash
+136 mp4   1280x720    24    │   14.46MiB  398k https │ avc1.4d401f    398k video only          720p, mp4_dash
+247 webm  1280x720    24    │   15.64MiB  430k https │ vp9            430k video only          720p, webm_dash
+399 mp4   1920x1080   24    │   33.00MiB  908k https │ av01.0.08M.08  908k video only          1080p, mp4_dash
+137 mp4   1920x1080   24    │   49.22MiB 1354k https │ avc1.640028   1354k video only          1080p, mp4_dash
+248 webm  1920x1080   24    │   41.45MiB 1140k https │ vp9           1140k video only          1080p, webm_dash
+```
+To download a particular format, say the best audio available, we can either:
+```bash
+yt-dlp "https://www.youtube.com/watch?v=a51VH9BYzZA" -f 251
+# OR
+yt-dlp "https://www.youtube.com/watch?v=a51VH9BYzZA" -f "bestaudio"
+```
+
+To download the best possible audio and video, and automatically merge both streams:
+```bash 
+yt-dlp "https://www.youtube.com/watch?v=a51VH9BYzZA" -f "bestvideo+bestaudio"
+```
+### Setting save location
+To set filename and save location, we use `-o`
+
+For example, if I wanted to save the video in `/home/sui/raw/StellarStellar.mp4`
+```bash
+yt-dlp "https://www.youtube.com/watch?v=a51VH9BYzZA" -o '/home/sui/raw/StellarStellar.mp4'
+```
+And we can also use variables in the filename!
+```bash
+yt-dlp "https://www.youtube.com/watch?v=a51VH9BYzZA" -o '/home/sui/raw/%(upload_date)s %(title)s.%(ext)s.mp4'
+```
+
+### Cookies
+To be able to access membership streams (which you have legal access to), you can export your cookies from your favourite browser using extensions, such as [`cookies-txt`](https://github.com/lennonhill/cookies-txt). After getting said `cookies.txt`, say if it's located in `/home/sui/cookies.txt`, 
+```bash
+yt-dlp "https://www.youtube.com/watch?v=a51VH9BYzZA" --cookies '/home/sui/cookies.txt'
+```
+
+### Configuration File
+To help quickly downloading videos on command, you might want to save above command line options into a configuration file. <br />
+For Windows: `%APPDATA%\yt-dlp\config.txt`<br />
+For Linux: `/etc/yt-dlp.conf`<br />
+
+As for the contents, here is what I personally use. Feel free to tweak it to your own use and preferences.
+
+```
+-o '/home/sui/raw/%(upload_date)s %(title)s.%(ext)s' # replace the directory
+--embed-thumbnail
+--format 'bestvideo+bestaudio/best/mp4'
+--merge-output-format mp4
+--add-metadata
+--cookies '/home/sui/cookies.txt'
+--concurrent-fragments 2
+--write-subs       
+--sub-langs "en.*,jp,id"
+```
+Explaination: <br />
+```
+Ln 3 ensures that yt-dlp will always download the best available audio/video combo
+Ln 4 ensures the output to be .mp4
+Ln 5 saves the video's metadata (we are here to archive after all)
+Ln 7 allows yt-dlp to download more chunks simultaniously
+Ln 8 saves subtitles
+Ln 9 configures which subtitles to download
+```
+
+
