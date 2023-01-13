@@ -169,4 +169,11 @@ Ln 8 saves subtitles
 Ln 9 configures which subtitles to download
 ```
 
+### Recording ongoing (or scheduled) livestreams.
+It is possible to add `--live-from-start` to download an ongoing livestream from the start.
 
+However, most VTubers (especially ones represented by an agency) tend to not alow DVR (e.g. let you seek to a previous point in the stream, while the stream is happening). This has the effect of making it impossible to download said stream if recording is not done from the beginning.
+
+If you are able to start `yt-dlp` before the stream starts (e.g. you are aware of it being scheduled), you can use `--wait-for-video n`, where `n` is an integer. This option will mak e `yt-dlp` try to start downloading the stream, and if it's not started yet, try again in `n` seconds. For example, `--wait-for-video 60` makes `yt-dlp` keep trying every minute.
+
+An alternative to doing this is using [`kkr`](/docs/tools/kkr/).

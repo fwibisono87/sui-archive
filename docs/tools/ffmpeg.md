@@ -7,6 +7,11 @@ The essential tool to working with video/audio.
 
 [`ffmpeg`](https://ffmpeg.org/) is a "A complete, cross-platform solution to record, convert and stream audio and video." For our intents and purposes, we use it to manipulate audio and video streams. 
 
+## What does this tool do?
+ffmpeg is a tool that allows you to record, convert, and stream audio and video. It can be used to edit and manipulate audio and video streams in various ways using CLI.
+
+> Note: If you are using other tools, you shouldn't need to interact with this tool directly. **However**, it is required by other tools, for example [`yt-dlp`](/docs/tools/yt-dlp/)
+
 ## Setup
 
 ### Windows 
