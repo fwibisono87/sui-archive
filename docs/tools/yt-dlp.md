@@ -181,8 +181,12 @@ An alternative to doing this is using [`kkr`](/docs/tools/kkr/).
 ## SPWN and Nissin
 SPWN and Nissin are two of the most popular ways Cover use for paid lives (e.g. Sololives and HoloFes). It is possible to download them using `yt-dlp`, however it requires some special setup.
 
-> **Warning**:
-> Please be informed that I have not personally tested this method. Therefore, I am basing this section purely based on the previous guide's implementation. I will test this during Suisei's 2nd Sololive however :) 
+
+:::warning
+
+Please be informed that I have not personally tested this method. Therefore, I am basing this section purely based on the previous guide's implementation. I will test this during Suisei's 2nd Sololive however :) 
+
+:::
 
 
 <div style={{textAlign: 'center'}}>
