@@ -177,3 +177,36 @@ However, most VTubers (especially ones represented by an agency) tend to not alo
 If you are able to start `yt-dlp` before the stream starts (e.g. you are aware of it being scheduled), you can use `--wait-for-video n`, where `n` is an integer. This option will mak e `yt-dlp` try to start downloading the stream, and if it's not started yet, try again in `n` seconds. For example, `--wait-for-video 60` makes `yt-dlp` keep trying every minute.
 
 An alternative to doing this is using [`kkr`](/docs/tools/kkr/).
+
+## SPWN and Nissin
+SPWN and Nissin are two of the most popular ways Cover use for paid lives (e.g. Sololives and HoloFes). It is possible to download them using `yt-dlp`, however it requires some special setup.
+
+> **Warning**:
+> Please be informed that I have not personally tested this method. Therefore, I am basing this section purely based on the previous guide's implementation. I will test this during Suisei's 2nd Sololive however :) 
+
+
+<div style={{textAlign: 'center'}}>
+
+![image](../../static/img/suisei_album2.webp)
+
+</div>
+
+After entering the streaming page, press F12 on your keyboard to bring up the developer console for your browser. Click on the "Network" tab on the top (the RED arrow).
+
+In the "Filter URLs" section, type in m3u8, then refresh the page. You should see the main .m3u8 link generated (the GREEN arrow).
+
+If the default resolution isn't 1080p don't worry, keep the developer console open and select 1080p manually and you should be able to see the main .m3u8 link generate.
+
+Right click the .m3u8 link (the BLUE arrow), and select Copy > Copy URL. This is the URL to the actual video source, so make sure you write it down somewhere
+
+### Get Cookies
+To let `yt-dlp` download the stream, you have to give them cookies to SPWN/Nissin. Use the method outlined in the cookies section above to retrieve and save said cookies.
+
+### Quality Selection
+As SPWN/Nissin's systems are different than YouTube's - there's no guarantee that the option `bestaudio+bestvideo` will work. Therefore, we need to use the `-F` flag to find out the available formats. Use the Format Selection section above to find the best audio and video formats available
+
+### Command
+Your command should look something like this
+```bash
+yt-dlp ".m3u8 link" --cookies "cookies.txt path" -o "save path" -f 5279+program_audio-Fine
+```

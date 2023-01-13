@@ -13,8 +13,20 @@ This tool is build on [`Node JS`](https://nodejs.org/en/). The following is a sh
 
 ### Windows
 For Windows, please download and use [the installer](https://nodejs.org/en/download/). Choose the LTS Windows installer.
+
+<div style={{textAlign: 'center'}}>
+
 ![image](../../static/img/nodejs-windows-installer.webp)
-Install using all default settings, but ensure at this step, this checkbox is checked. ![image](../../static/img/nodejs-windows-installer-chocolatey.png)
+
+</div>
+
+Install using all default settings, but ensure at this step, this checkbox is checked.
+
+<div style={{textAlign: 'center'}}>
+
+![image](../../static/img/nodejs-windows-installer-chocolatey.png)
+
+</div>
 
 ### Linux, MacOS
 Although some distributions can reliably install NodeJS with their native package manager, this is not always the case. For example, `apt` (Debian and it's distributions) are known to not carry the most recent NodeJS version. Therefore, to ensure a uniform experience, this guide will use [`tj/n`](https://github.com/tj/n), a NodeJS version manager and installer.
