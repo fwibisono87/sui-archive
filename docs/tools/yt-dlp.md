@@ -176,6 +176,16 @@ However, most VTubers (especially ones represented by an agency) tend to not alo
 
 If you are able to start `yt-dlp` before the stream starts (e.g. you are aware of it being scheduled), you can use `--wait-for-video n`, where `n` is an integer. This option will mak e `yt-dlp` try to start downloading the stream, and if it's not started yet, try again in `n` seconds. For example, `--wait-for-video 60` makes `yt-dlp` keep trying every minute.
 
+<div style={{textAlign: 'center'}}>
+
+![image](../../static/img/scheduled.png)
+
+</div>
+```bash
+ yt-dlp -f bestaudio+bestvideo --wait-for-video 15 https://www.youtube.com/watch\?v\=TFee3zJ1gW4
+```
+`yt-dlp` will automatically lookup when the stream is supposed to start, then will keep retrying to download the stream as it starts
+
 An alternative to doing this is using [`kkr`](/docs/tools/kkr/).
 
 ## SPWN and Nissin
@@ -186,6 +196,10 @@ SPWN and Nissin are two of the most popular ways Cover use for paid lives (e.g. 
 
 Please be informed that I have not personally tested this method. Therefore, I am basing this section purely based on the previous guide's implementation. I will test this during Suisei's 2nd Sololive however :) 
 
+:::
+
+:::info
+During [Suisei's 2nd Sololive](https://virtual.spwn.jp/events/23012802-engsuisei2ndlive), I was unable to get this to work. I was able to, however, use [Free Download Manager](https://www.freedownloadmanager.org/) instead.
 :::
 
 
