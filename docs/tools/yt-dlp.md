@@ -181,8 +181,9 @@ If you are able to start `yt-dlp` before the stream starts (e.g. you are aware o
 ![image](../../static/img/scheduled.png)
 
 </div>
-```bash
- yt-dlp -f bestaudio+bestvideo --wait-for-video 15 https://www.youtube.com/watch\?v\=TFee3zJ1gW4
+
+``` bash
+yt-dlp -f bestaudio+bestvideo --wait-for-video 15 https://www.youtube.com/watch\?v\=TFee3zJ1gW4
 ```
 `yt-dlp` will automatically lookup when the stream is supposed to start, then will keep retrying to download the stream as it starts
 
