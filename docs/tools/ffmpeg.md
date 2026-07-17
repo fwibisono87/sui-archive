@@ -1,53 +1,69 @@
 ---
 sidebar_position: 1
+title: ffmpeg
+description: Install and verify the media toolkit used by yt-dlp.
 ---
+
 # ffmpeg
 
-The essential tool to working with video/audio.
+[`ffmpeg`](https://ffmpeg.org/) is the media toolkit `yt-dlp` uses to combine separate video and audio streams. You usually do not need to call it directly, but it must be installed and visible on your `PATH`.
 
-[`ffmpeg`](https://ffmpeg.org/) is a "A complete, cross-platform solution to record, convert and stream audio and video." For our intents and purposes, we use it to manipulate audio and video streams. 
+## Windows
 
-## What does this tool do?
-ffmpeg is a tool that allows you to record, convert, and stream audio and video. It can be used to edit and manipulate audio and video streams in various ways using CLI.
-
-> Note: If you are using other tools, you shouldn't need to interact with this tool directly. **However**, it is required by other tools, for example [`yt-dlp`](/docs/tools/yt-dlp/)
-
-## Setup
-
-### Windows 
-Really simple, all you have to do is grab the [current release build](https://www.gyan.dev/ffmpeg/builds/). 
-
-After doing so, extract the archive and run the following command to tell Windows where your `ffmpeg` program is located. For example, let's assume you extracted your archive on `C:\Users\suichan\Downloads\ffmpeg-5.1.2-essentials_build`:
+Install a current build with `winget`:
 
 ```powershell
-setx /M PATH "%PATH%;C:\Users\suichan\Downloads\ffmpeg-5.1.2-essentials_build\bin\ffmpeg.exe"
+winget install Gyan.FFmpeg
 ```
 
-### Linux
+Alternatively, download a build linked from the official [ffmpeg download page](https://ffmpeg.org/download.html). Extract it to a permanent location, then add the archive's **`bin` directory** to your user `PATH`—not `ffmpeg.exe` itself. Open a new terminal afterward.
 
-#### Debian-base
-For anything debian-based (Ubuntu, Linux Mint, and, well, Debian), 
+## macOS
+
+With [Homebrew](https://brew.sh/):
+
+```bash
+brew install ffmpeg
+```
+
+## Linux
+
+Debian, Ubuntu, and Linux Mint:
 
 ```bash
 sudo apt update
-sudo apt upgrade
-
 sudo apt install ffmpeg
 ```
 
-To test that `ffmpeg` is installed, run
+Fedora:
+
+```bash
+sudo dnf install ffmpeg
+```
+
+Arch Linux:
+
+```bash
+sudo pacman -S ffmpeg
+```
+
+Package availability and codec selection vary by distribution. Consult your distribution documentation if the package is unavailable.
+
+## Verify the installation
+
 ```bash
 ffmpeg -version
+ffprobe -version
 ```
 
-#### ArchLinux (and anything that has AUR)
+Both commands should print version and build information.
+
+## Containers and remuxing
+
+The video codec, audio codec, and file container are different things. The highest-quality streams may combine cleanly into Matroska (`.mkv`) but not MP4. For preservation, keep the source codecs and let `yt-dlp` choose a compatible container. If you need an MP4 playback copy, try:
 
 ```bash
-yay -Syyu
-yay -S ffmpeg
+ffmpeg -i "archive.mkv" -map 0 -c copy "playback-copy.mp4"
 ```
 
-To test that `ffmpeg` is installed, run
-```bash
-ffmpeg -version
-```
+This remuxes without re-encoding. It can fail when one of the source codecs is not supported by MP4; keep the original archive either way.

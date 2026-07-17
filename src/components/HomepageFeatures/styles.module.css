@@ -1,11 +1,81 @@
 .features {
-  display: flex;
-  align-items: center;
-  padding: 2rem 0;
-  width: 100%;
+  padding: 5rem 0 6rem;
 }
 
-.featureSvg {
-  height: 200px;
-  width: 200px;
+.intro {
+  max-width: 42rem;
+  margin-bottom: 2.25rem;
+}
+
+.intro h2 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -0.035em;
+}
+
+.kicker {
+  margin-bottom: 0.6rem;
+  color: var(--ifm-color-primary);
+  font-size: 0.8rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.card {
+  display: flex;
+  min-height: 18rem;
+  flex-direction: column;
+  padding: 1.75rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 1rem;
+  background: var(--ifm-background-surface-color);
+  box-shadow: 0 12px 35px rgba(21, 67, 101, 0.07);
+}
+
+.card h3 {
+  margin: 1.2rem 0 0.75rem;
+  font-size: 1.35rem;
+}
+
+.card p {
+  color: var(--ifm-color-emphasis-700);
+  line-height: 1.65;
+}
+
+.card a {
+  margin-top: auto;
+  font-weight: 700;
+}
+
+.icon {
+  display: grid;
+  width: 2.8rem;
+  height: 2.8rem;
+  place-items: center;
+  border-radius: 0.75rem;
+  color: #fff;
+  background: var(--ifm-color-primary);
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+@media screen and (max-width: 850px) {
+  .features {
+    padding: 3.5rem 0 4rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    min-height: 0;
+  }
 }

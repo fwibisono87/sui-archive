@@ -1,6 +1,4 @@
 // @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
-
 const {themes} = require('prism-react-renderer');
 const lightCodeTheme = themes.github;
 const darkCodeTheme = themes.dracula;
@@ -8,25 +6,20 @@ const darkCodeTheme = themes.dracula;
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Suisei Archive Guide',
-  tagline: 'Treasure every single moment with our dearest comet ☄️',
+  tagline: 'Keep the moments that matter, responsibly.',
   url: 'https://fwibisono87.github.io',
   baseUrl: '/sui-archive/',
   onBrokenLinks: 'throw',
   markdown: {
     hooks: {
-      onBrokenMarkdownLinks: 'warn',
+      onBrokenMarkdownLinks: 'throw',
     },
   },
   favicon: 'img/favicon.ico',
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'fwibisono87', // Usually your GitHub org/user name.
-  projectName: 'sui-archive', // Usually your repo name.
+  organizationName: 'fwibisono87',
+  projectName: 'sui-archive',
   trailingSlash: true,
-  // Even if you don't use internalization, you can use this field to set useful
-  // metadata like html lang. For example, if your site is Chinese, you may want
-  // to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -37,12 +30,10 @@ const config = {
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
+        blog: false,
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          editUrl: 'https://github.com/fwibisono87/sui-archive/edit/master/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -57,7 +48,7 @@ const config = {
       navbar: {
         title: 'Suisei Archive Guide',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'Suisei Archive Guide comet logo',
           src: 'img/sui.png',
         },
         items: [
@@ -65,10 +56,16 @@ const config = {
             type: 'doc',
             docId: 'intro',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Guide',
           },
           {
-            href: 'https://github.com/facebook/docusaurus',
+            type: 'doc',
+            docId: 'quick-start',
+            position: 'left',
+            label: 'Quick start',
+          },
+          {
+            href: 'https://github.com/fwibisono87/sui-archive',
             label: 'GitHub',
             position: 'right',
           },
@@ -81,30 +78,38 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'Quick start',
+                to: '/docs/quick-start/',
+              },
+              {
+                label: 'Live streams',
+                to: '/docs/live-streams/',
+              },
+              {
+                label: 'Preservation',
+                to: '/docs/preservation/',
               },
             ],
           },
           {
-            title: 'Community',
+            title: 'Project',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                label: 'Source code',
+                href: 'https://github.com/fwibisono87/sui-archive',
               },
               {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
+                label: 'Report an issue',
+                href: 'https://github.com/fwibisono87/sui-archive/issues',
               },
               {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
+                label: 'Content license',
+                href: 'https://creativecommons.org/licenses/by/4.0/',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `© ${new Date().getFullYear()} Francis Wibisono. Guide content CC BY 4.0. Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,

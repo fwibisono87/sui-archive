@@ -1,41 +1,33 @@
-# Website
+# Suisei Archive Guide
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+A beginner-friendly guide to making responsible personal archives of streams. The site covers `yt-dlp`, `ffmpeg`, YouTube live capture, authorized paid-event case studies, metadata, subtitles, chat, checksums, and backups.
 
-### Installation
+The published site is <https://fwibisono87.github.io/sui-archive/>.
 
-```
-$ yarn
-```
+## Development
 
-### Local Development
+Requirements:
 
-```
-$ yarn start
-```
+- Node.js 24 or newer (the repository includes `.nvmrc`)
+- Yarn 1.22.22
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+Install dependencies and start the local site:
 
-### Build
-
-```
-$ yarn build
+```bash
+yarn install --frozen-lockfile
+yarn start
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+Create a production build:
 
-### Deployment
-
-Using SSH:
-
-```
-$ USE_SSH=true yarn deploy
+```bash
+yarn build
 ```
 
-Not using SSH:
+Pull requests to the guide are welcome. Platform-specific instructions should link to primary sources and state when they were last verified. Never include account cookies, signed media URLs, ticket details, or other credentials in examples or bug reports.
 
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
+Pushes to `master` are built and deployed to GitHub Pages by `.github/workflows/deploy-pages.yml`.
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+## Licenses
+
+Source code is licensed under the [MIT License](./LICENSE). Written guide content is licensed under [CC BY 4.0](./CONTENT-LICENSE.md).

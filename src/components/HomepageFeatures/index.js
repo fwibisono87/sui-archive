@@ -1,61 +1,48 @@
 import React from 'react';
-import clsx from 'clsx';
+import Link from '@docusaurus/Link';
+import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 
-const FeatureList = [
+const features = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
-    description: (
-      <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
-      </>
-    ),
+    icon: '▶',
+    title: 'Capture with context',
+    description: 'Save the best available media together with descriptions, thumbnails, subtitles, comments, and live chat.',
+    label: 'Learn yt-dlp',
+    to: '/docs/tools/yt-dlp/',
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
-    description: (
-      <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
-      </>
-    ),
+    icon: '◉',
+    title: 'Be ready before live',
+    description: 'Prepare for scheduled starts, understand DVR limits, and compare your capture with the processed VOD.',
+    label: 'Prepare for a stream',
+    to: '/docs/live-streams/',
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
-    description: (
-      <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
-      </>
-    ),
+    icon: '✓',
+    title: 'Know your copy is safe',
+    description: 'Use stable names, checksums, verification, and a 3-2-1 backup plan instead of trusting a single disk.',
+    label: 'Build an archive',
+    to: '/docs/preservation/',
   },
 ];
-
-function Feature({Svg, title, description}) {
-  return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <h3>{title}</h3>
-        <p>{description}</p>
-      </div>
-    </div>
-  );
-}
 
 export default function HomepageFeatures() {
   return (
     <section className={styles.features}>
       <div className="container">
-        <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
+        <div className={styles.intro}>
+          <p className={styles.kicker}>From one VOD to a resilient collection</p>
+          <Heading as="h2">A workflow you can understand and repeat</Heading>
+        </div>
+        <div className={styles.grid}>
+          {features.map((feature) => (
+            <article className={styles.card} key={feature.title}>
+              <span className={styles.icon} aria-hidden="true">{feature.icon}</span>
+              <Heading as="h3">{feature.title}</Heading>
+              <p>{feature.description}</p>
+              <Link to={feature.to}>{feature.label} <span aria-hidden="true">→</span></Link>
+            </article>
           ))}
         </div>
       </div>
